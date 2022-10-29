@@ -5,37 +5,48 @@
 package com.portfolio.betinasp.Service;
 
 import com.portfolio.betinasp.Entity.Persona;
-import com.portfolio.betinasp.Interface.IPersonaService;
 import com.portfolio.betinasp.Repository.IPersonaRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 @Service
-public class ImpPersonaService implements IPersonaService{
-    @Autowired IPersonaRepository iPersonaRepository;
-
-    @Override
-    public List<Persona> getPersona() {
-       List<Persona> persona=iPersonaRepository.findAll();
-       return persona;
-    }
-
-    @Override
-    public void savePersona(Persona persona) {
-        iPersonaRepository.save(persona);
-    }
-
-    @Override
-    public void deletePersona(Long id) {
-        iPersonaRepository.deleteById(id);
-    }
-
-    @Override
-    public Persona findPersona(Long id) {
-        Persona persona = iPersonaRepository.findById(id).orElse(null);
-        return persona;
-    }
+@Transactional
+public class ImpPersonaService{
+    @Autowired 
+    IPersonaRepository iPersonaRepository;
+    
+     public List<Persona> list(){
+         return iPersonaRepository.findAll();
+     }
+     
+     public Optional<Persona> getOne(int id){
+         return iPersonaRepository.findById(id);
+     }
+     
+     public Optional<Persona> getByNombre(String nombre){
+         return iPersonaRepository.findByNombre(nombre);
+     }
+     
+     public void save(Persona persona){
+         iPersonaRepository.save(persona);
+     }
+     
+     public void delete(int id){
+         iPersonaRepository.deleteById(id);
+     }
+     
+     public boolean existsById(int id){
+         return iPersonaRepository.existsById(id);
+     }
+     
+     public boolean existsByNombre(String nombre){
+         return iPersonaRepository.existsByNombre(nombre);
+     }
     
     
+
 }
