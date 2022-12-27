@@ -1,6 +1,6 @@
 FROM amazoncorretto:8-alpine-jdk
 
-LABEL betina="betinaspotto" 
+MAINTAINER betinaspotto
 
 COPY target/betinasp-0.0.1-SNAPSHOT.jar betinasp-0.0.1-SNAPSHOT.jar
 
