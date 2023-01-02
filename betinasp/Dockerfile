@@ -1,16 +1,12 @@
-#FROM amazoncorretto:8-alpine-jdk
 
-#LABEL MAINTAINER "betinaspotto"
+# Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+# Click nbfs://nbhost/SystemFileSystem/Templates/Other/Dockerfile to edit this template
 
-#COPY target/betinasp-0.0.1-SNAPSHOT.jar betinasp-0.0.1-SNAPSHOT.jar
+#FROM alpine:latest
 
-#ENTRYPOINT ["java","-jar","/betinasp-0.0.1-SNAPSHOT.jar"]
-
+#CMD ["/bin/sh"]
 FROM openjdk:8-alpine-jdk
 MAINTAINER emaaristimuno
 COPY betinasp/target/betinasp-0.0.1-SNAPSHOT.jar app.jar
 #EXPOSE 8080
 ENTRYPOINT ["java","-jar","app.jar"]
-
-
-
