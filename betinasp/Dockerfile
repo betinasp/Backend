@@ -6,7 +6,7 @@
 
 #ENTRYPOINT ["java","-jar","/betinasp-0.0.1-SNAPSHOT.jar"]
 
-FROM openjdk:8-jdk-slim
+FROM openjdk:8-alpine-jdk
 MAINTAINER emaaristimuno
 COPY betinasp/target/betinasp-0.0.1-SNAPSHOT.jar app.jar
 #EXPOSE 8080
