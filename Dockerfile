@@ -5,8 +5,12 @@
 #FROM alpine:latest
 
 #CMD ["/bin/sh"]
-FROM openjdk:8-alpine-jdk
+#FROM openjdk:8-alpine-jdk
+#MAINTAINER emaaristimuno
+#COPY target/betinasp-0.0.1-SNAPSHOT.jar app.jar
+#EXPOSE 8080
+#ENTRYPOINT ["java","-jar","app.jar"]
+FROM amazoncorretto:8-alpine-jdk
 MAINTAINER emaaristimuno
 COPY target/betinasp-0.0.1-SNAPSHOT.jar app.jar
-#EXPOSE 8080
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
